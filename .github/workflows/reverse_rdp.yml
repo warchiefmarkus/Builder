@@ -14,7 +14,8 @@ jobs:
     - name: SyncON
       run: |
         $MEGA_LOGIN = $Env:MEGA_LOGIN 
-        $MEGA_PASS = $Env:MEGA_PASS           
+        $MEGA_PASS = $Env:MEGA_PASS
+        echo "$MEGA_LOGIN"          
         $env:PATH += ";$env:LOCALAPPDATA\MEGAcmd"; Start-Process "mega-login" -ArgumentList "${MEGA_LOGIN} ${MEGA_PASS}"; Start-Process "mega-sync" -ArgumentList  "$env:USERPROFILE\Desktop RDP_DESKTOP"
       
     - name: Download NGrok
