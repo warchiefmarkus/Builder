@@ -12,7 +12,7 @@ jobs:
     - name: Install MegaSync
       run: Start-Process "MEGAcmdSetup.exe" -ArgumentList "/S"
     - name: AddMegaEnv
-      run: $env:PATH += ";$env:LOCALAPPDATA\MEGAcmd"
+      run: $env:PATH += ";"+$env:LOCALAPPDATA+"\MEGAcmd"
     - run: echo $env:PATH
     - name: SyncON
       env:
