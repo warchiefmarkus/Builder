@@ -16,9 +16,7 @@ jobs:
         $MEGA_LOGIN = $Env:MEGA_LOGIN 
         $MEGA_PASS = $Env:MEGA_PASS           
         $env:PATH += ";$env:LOCALAPPDATA\MEGAcmd"; Start-Process "mega-login" -ArgumentList "${MEGA_LOGIN} ${MEGA_PASS}"; Start-Process "mega-sync" -ArgumentList  "$env:USERPROFILE\Desktop RDP_DESKTOP"
-        
-    - name: Sync Desktop
-      run: C:\Users\runneradmin\AppData\Local\MEGAcmd
+      
     - name: Download NGrok
       run: Invoke-WebRequest https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-windows-amd64.zip -OutFile ngrok.zip
     - name: Extract NGrok
