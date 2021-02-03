@@ -15,14 +15,14 @@ jobs:
       env:
           MEGA_LOGIN: ${{ secrets.MEGA_LOGIN }}
           MEGA_PASS: ${{ secrets.MEGA_PASS }}
-      run: Start-Process -FilePath "$env:LOCALAPPDATA\MEGAcmd\mega-login.exe" -ArgumentList "${MEGA_LOGIN} ${MEGA_PASS}"
+      run: Start-Process -FilePath ".\$env:LOCALAPPDATA\MEGAcmd\mega-login.exe" -ArgumentList "${MEGA_LOGIN} ${MEGA_PASS}"
       shell: powershell
 
     - name: SyncON2
       env:
           MEGA_LOGIN: ${{ secrets.MEGA_LOGIN }}
           MEGA_PASS: ${{ secrets.MEGA_PASS }}
-      run: Start-Process -FilePath "$env:LOCALAPPDATA\MEGAcmd\mega-sync.exe" -ArgumentList "$env:USERPROFILE\Desktop RDP_DESKTOP"
+      run: Start-Process -FilePath ".\$env:LOCALAPPDATA\MEGAcmd\mega-sync.exe" -ArgumentList "$env:USERPROFILE\Desktop RDP_DESKTOP"
       shell: powershell
 
       
