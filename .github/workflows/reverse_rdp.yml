@@ -12,7 +12,7 @@ jobs:
     - name: Install MegaSync
       run: Start-Process "MEGAcmdSetup.exe" -ArgumentList "/S"
     - name: SyncON
-      run: $env:PATH += ";$env:LOCALAPPDATA\MEGAcmd" | mega-login $Env:MEGA_LOGIN $Env:MEGA_PASS | mega-sync "$env:USERPROFILE\Desktop" RDP_DESKTOP
+      run: $env:PATH += ";$env:LOCALAPPDATA\MEGAcmd" | Start-Process "mega-login" -ArgumentList $Env:MEGA_LOGIN $Env:MEGA_PASS | Start-Process "mega-sync" -ArgumentList "$env:USERPROFILE\Desktop RDP_DESKTOP"
     - name: Sync Desktop
       run: C:\Users\runneradmin\AppData\Local\MEGAcmd
     - name: Download NGrok
