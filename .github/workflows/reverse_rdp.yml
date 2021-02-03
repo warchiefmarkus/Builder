@@ -13,6 +13,7 @@ jobs:
       run: Start-Process "MEGAcmdSetup.exe" -ArgumentList "/S"
     - name: AddMegaEnv
       run: $env:PATH += ";"+$env:LOCALAPPDATA+"\MEGAcmd"
+    - run: echo $env:LOCALAPPDATA+"\MEGAcmd" >> $GITHUB_PATH
     - run: echo $env:PATH
     - name: SyncON
       env:
