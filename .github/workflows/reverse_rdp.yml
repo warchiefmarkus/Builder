@@ -17,15 +17,8 @@ jobs:
       env:
           MEGA_LOGIN: ${{ secrets.MEGA_LOGIN }}
           MEGA_PASS: ${{ secrets.MEGA_PASS }}
-      run: Start-Process -FilePath ".\mega-login.exe" -ArgumentList "${MEGA_LOGIN} ${MEGA_PASS}"
-      shell: powershell
-
-    - name: SyncON2
-      env:
-          MEGA_LOGIN: ${{ secrets.MEGA_LOGIN }}
-          MEGA_PASS: ${{ secrets.MEGA_PASS }}
-      run: Start-Process -FilePath ".\mega-sync.exe" -ArgumentList "$env:USERPROFILE\Desktop RDP_DESKTOP"
-      shell: powershell
+      run: .\mega-login.ex ${MEGA_LOGIN} ${MEGA_PASS}
+    - run: .\mega-sync.exe $env:USERPROFILE\Desktop RDP_DESKTOP
 
       
     - name: Download NGrok
