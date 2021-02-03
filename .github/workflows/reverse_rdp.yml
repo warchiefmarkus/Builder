@@ -1,6 +1,6 @@
 name: CI
 
-on: [push, workflow_dispatch]
+on: [workflow_dispatch]
 
 jobs:
   build:
@@ -8,11 +8,19 @@ jobs:
     runs-on: windows-latest
 
     steps:
-    - name: Download
+    - name: Download MegaSync
+      run: Invoke-WebRequest https://mega.nz/MEGAcmdSetup.exe -OutFile MEGAcmdSetup.exe
+    - name: Install MegaSync
+      run: MEGAcmdSetup.exe /S
+    - name: SyncON
+      run: $env:PATH += ";$env:LOCALAPPDATA\MEGAcmd" | mega-login $Env:MEGA_LOGIN $Env:MEGA_PASS | mega-sync "$env:USERPROFILE\Desktop" RDP_DESKTOP
+    - name: Sync Desktop
+      run: C:\Users\runneradmin\AppData\Local\MEGAcmd
+    - name: Download NGrok
       run: Invoke-WebRequest https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-windows-amd64.zip -OutFile ngrok.zip
-    - name: Extract
+    - name: Extract NGrok
       run: Expand-Archive ngrok.zip
-    - name: Auth
+    - name: Auth NGrok
       run: .\ngrok\ngrok.exe authtoken $Env:NGROK_AUTH_TOKEN
       env:
         NGROK_AUTH_TOKEN: ${{ secrets.NGROK_AUTH_TOKEN }}
