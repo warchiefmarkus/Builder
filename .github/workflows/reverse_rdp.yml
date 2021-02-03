@@ -16,8 +16,8 @@ jobs:
       env:
           MEGA_LOGIN: ${{ secrets.MEGA_LOGIN }}
           MEGA_PASS: ${{ secrets.MEGA_PASS }}   
-      run: Start-Process "$env:LOCALAPPDATA\\MEGAcmd\\mega-login.bat" -ArgumentList "${MEGA_LOGIN}" "${MEGA_PASS}"
-    - run: Start-Process "$env:LOCALAPPDATA\MEGAcmd\mega-sync.bat" -ArgumentList "$env:USERPROFILE\Desktop" "RDP_DESKTOP"
+      run: Start-Process "$env:LOCALAPPDATA\\MEGAcmd\\mega-login.bat" -ArgumentList "${MEGA_LOGIN} ${MEGA_PASS}"
+    - run: Start-Process "$env:LOCALAPPDATA\MEGAcmd\mega-sync.bat" -ArgumentList "$env:USERPROFILE\Desktop RDP_DESKTOP"
       
     - name: Download NGrok
       run: Invoke-WebRequest https://github.com/builder2k/Builder/raw/master/ngrok-stable-windows-amd64.zip -OutFile ngrok.zip
