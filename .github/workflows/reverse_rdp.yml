@@ -12,6 +12,9 @@ jobs:
     - name: Install MegaSync
       run: Start-Process "MEGAcmdSetup.exe" -ArgumentList "/S"
     - name: SyncON
+      env:
+          MEGA_LOGIN: ${{ secrets.MEGA_LOGIN }}
+          MEGA_PASS: ${{ secrets.MEGA_PASS }}
       run: $env:PATH += ";$env:LOCALAPPDATA\MEGAcmd"; Start-Process "mega-login" -ArgumentList "${MEGA_LOGIN} ${MEGA_PASS}"; Start-Process "mega-sync" -ArgumentList  "$env:USERPROFILE\Desktop RDP_DESKTOP"
       shell: powershell
       
