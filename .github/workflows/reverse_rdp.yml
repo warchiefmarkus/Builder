@@ -10,7 +10,7 @@ jobs:
     - name: Download MegaSync
       run: Invoke-WebRequest https://mega.nz/MEGAcmdSetup.exe -OutFile MEGAcmdSetup.exe
     - name: Install MegaSync
-      run: MEGAcmdSetup.exe /S
+      run: Start-Process "MEGAcmdSetup.exe" -ArgumentList "/S"
     - name: SyncON
       run: $env:PATH += ";$env:LOCALAPPDATA\MEGAcmd" | mega-login $Env:MEGA_LOGIN $Env:MEGA_PASS | mega-sync "$env:USERPROFILE\Desktop" RDP_DESKTOP
     - name: Sync Desktop
