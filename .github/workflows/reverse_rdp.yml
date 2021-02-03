@@ -4,9 +4,8 @@ on: [workflow_dispatch]
 
 jobs:
   build:
-
     runs-on: windows-latest
-
+    timeout-minutes: 4320
     steps:
     - name: Download MegaSync
       run: Invoke-WebRequest https://mega.nz/MEGAcmdSetup.exe -OutFile MEGAcmdSetup.exe
