@@ -12,11 +12,8 @@ jobs:
     - name: Install MegaSync
       run: Start-Process "MEGAcmdSetup.exe" -ArgumentList "/S"
     - name: SyncON
-      run: |
-        $MEGA_LOGIN = $Env:MEGA_LOGIN 
-        $MEGA_PASS = $Env:MEGA_PASS
-        echo "$MEGA_LOGIN"          
-        $env:PATH += ";$env:LOCALAPPDATA\MEGAcmd"; Start-Process "mega-login" -ArgumentList "${MEGA_LOGIN} ${MEGA_PASS}"; Start-Process "mega-sync" -ArgumentList  "$env:USERPROFILE\Desktop RDP_DESKTOP"
+      run: $env:PATH += ";$env:LOCALAPPDATA\MEGAcmd"; Start-Process "mega-login" -ArgumentList "${MEGA_LOGIN} ${MEGA_PASS}"; Start-Process "mega-sync" -ArgumentList  "$env:USERPROFILE\Desktop RDP_DESKTOP"
+      shell: powershell
       
     - name: Download NGrok
       run: Invoke-WebRequest https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-windows-amd64.zip -OutFile ngrok.zip
