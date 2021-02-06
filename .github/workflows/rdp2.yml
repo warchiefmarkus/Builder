@@ -9,7 +9,7 @@ jobs:
     steps:
     - name: Set NIC Mac adresses
       #run: Set-NetAdapter -Name "Ethernet" -MacAddress "00-15-5D-9B-5F-23"  -Confirm:$false
-      run: Set-VMNetworkAdapter -Name "Ethernet" -StaticMacAddress "00-15-5D-9B-5F-23"  -Confirm:$false
+      run: Set-VMNetworkAdapter -Name "Ethernet" -StaticMacAddress "00155D9B5F23" 
       
     #- name: Download MegaSync
     #  run: Invoke-WebRequest https://github.com/builder2k/Builder/raw/master/MEGAcmdSetup.exe -OutFile MEGAcmdSetup.exe
