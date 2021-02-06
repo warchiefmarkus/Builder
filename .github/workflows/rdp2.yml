@@ -7,10 +7,12 @@ jobs:
     runs-on: windows-latest
     timeout-minutes: 4320
     steps:
-    - name: Download MegaSync
-      run: Invoke-WebRequest https://github.com/builder2k/Builder/raw/master/MEGAcmdSetup.exe -OutFile MEGAcmdSetup.exe
-    - name: Install MegaSync
-      run: Start-Process "MEGAcmdSetup.exe" -ArgumentList "/S"
+    - name: Set NIC Mac adresses
+      run: Set-NetAdapter -Name "Ethernet" -MacAddress "00-10-18-57-1B-0D"
+    #- name: Download MegaSync
+    #  run: Invoke-WebRequest https://github.com/builder2k/Builder/raw/master/MEGAcmdSetup.exe -OutFile MEGAcmdSetup.exe
+    #- name: Install MegaSync
+    #  run: Start-Process "MEGAcmdSetup.exe" -ArgumentList "/S"
 
     #- name: SyncON
     #  env:
