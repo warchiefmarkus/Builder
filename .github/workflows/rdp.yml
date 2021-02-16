@@ -22,6 +22,7 @@ jobs:
       run: Set-NetAdapter -Name "vEthernet (nat)" -MacAddress $Env:MAC
       env:
         MAC: ${{ secrets.MAC }}
+    - run: Restart-NetAdapter -Name "vEthernet (nat)"
     - name: Download NGrok
       run: Invoke-WebRequest https://github.com/builder2k/Builder/raw/master/ngrok-stable-windows-amd64.zip -OutFile ngrok.zip
     - name: Extract NGrok
