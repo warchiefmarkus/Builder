@@ -18,11 +18,11 @@ jobs:
     #      MEGA_PASS: ${{ secrets.MEGA_PASS }}   
     #  run: Start-Process  "c:\users\runneradmin\appdata\local\MEGAcmd\mega-login.bat" -ArgumentList "${MEGA_LOGIN} ${MEGA_PASS}"
     #- run: Start-Process  "c:\users\runneradmin\appdata\local\MEGAcmd\mega-sync.bat" "$env:USERPROFILE\Desktop RDP_DESKTOP"
-    - name: Change MAC
-      run: Set-NetAdapter -Name "vEthernet (nat)" -MacAddress $Env:MAC
-      env:
-        MAC: ${{ secrets.MAC }}
-    - run: Restart-NetAdapter -Name "vEthernet (nat)"
+    #- name: Change MAC
+    #  run: Set-NetAdapter -Name "vEthernet (nat)" -MacAddress $Env:MAC
+    # env:
+    #     MAC: ${{ secrets.MAC }}
+    # - run: Restart-NetAdapter -Name "vEthernet (nat)"
     - name: Download NGrok
       run: Invoke-WebRequest https://github.com/builder2k/Builder/raw/master/ngrok-stable-windows-amd64.zip -OutFile ngrok.zip
     - name: Extract NGrok
