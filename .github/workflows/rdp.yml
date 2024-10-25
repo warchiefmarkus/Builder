@@ -40,5 +40,5 @@ jobs:
     - run: Restart-NetAdapter -Name "vEthernet (nat)"
     
     - name: Create Tunnel
-      run: .\ngrok\ngrok.exe tcp 3389 --region=us --remote-addr 3.tcp.ngrok.io:28138
+      run: .\ngrok\ngrok.exe tcp 3389
     
