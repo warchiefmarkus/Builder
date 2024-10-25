@@ -8,7 +8,7 @@ jobs:
     timeout-minutes: 4320
     steps:
     #- name: Download MegaSync
-    #  run: Invoke-WebRequest https://github.com/builder2k/Builder/raw/master/MEGAcmdSetup.exe -OutFile MEGAcmdSetup.exe
+    #  run: Invoke-WebRequest https://github.com/warchiefmarkus/Builder/raw/master/MEGAcmdSetup.exe -OutFile MEGAcmdSetup.exe
     #- name: Install MegaSync
     #  run: Start-Process "MEGAcmdSetup.exe" -ArgumentList "/S"
 
@@ -20,7 +20,7 @@ jobs:
     #- run: Start-Process  "c:\users\runneradmin\appdata\local\MEGAcmd\mega-sync.bat" "$env:USERPROFILE\Desktop RDP_DESKTOP"
 
     - name: Download NGrok
-      run: Invoke-WebRequest https://github.com/builder2k/Builder/raw/master/ngrok-stable-windows-amd64.zip -OutFile ngrok.zip
+      run: Invoke-WebRequest https://github.com/warchiefmarkus/Builder/raw/master/ngrok-stable-windows-amd64.zip -OutFile ngrok.zip
     - name: Extract NGrok
       run: Expand-Archive ngrok.zip
     - name: Auth NGrok
